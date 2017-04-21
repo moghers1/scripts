@@ -1,4 +1,3 @@
-# Author: AK
 # append data: python car.py >> carsOut.txt
 
 import requests
@@ -24,4 +23,4 @@ def car_spider(max_pages):
 			+ car.contents[9].find_all("p")[2].text[:-5].replace('Location:','').replace(', ','|').strip().upper()
 		page += 1
 
-car_spider(25)
+car_spider(1)
