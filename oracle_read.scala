@@ -23,9 +23,12 @@ val jobsDF = sqlContext.read.format("jdbc").options(Map(
 	"driver"-> "oracle.jdbc.OracleDriver"
 	)).load()
 
-jobsDF.registerTempTable("jobs")
-val jobs_1 = sqlContext.sql("select * from jobs")
+jobsDF.registerTempTable("tmptbl_jobs")
+val jobs_fltr = sqlContext.sql("select * from tmptbl_jobs where MIN_SALARY > '5000'")
 
-// select data from oracle table
-jobs_1.take(10).foreach(println)
-jobsDF.show
+// some selects to view data
+jobs_fltr.take(5).foreach(println)
+jobs_fltr.show
+
+// create Hive table and write to HDFS
+jobs_fltr.saveAsTable(default.jobsHDFS)
