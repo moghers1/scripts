@@ -1,4 +1,5 @@
-// spark-shell --jars ojdbc7.jar
+// spark SQL example - connect to Oracle HR schema and pull data from table.
+// to run: spark-shell --jars ojdbc7.jar
 
 // load libraries
 import java.sql.Types

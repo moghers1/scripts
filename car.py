@@ -1,4 +1,7 @@
+# crawl used car website and perform some basic ETL.
+#
 # append data: python car.py >> carsOut.txt
+
 
 import requests
 from bs4 import BeautifulSoup
